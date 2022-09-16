@@ -4,4 +4,5 @@ export interface IProductsRepository {
   findByName: (name: string) => Promise<Product>;
   save: (product: Product) => Promise<Product>;
   updateProductFile: () => void;
+  getProducts: () => Promise<Product[]>;
 }

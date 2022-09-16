@@ -38,4 +38,8 @@ export class FileProductsRepository implements IProductsRepository {
 
     return product;
   }
+
+  async getProducts(): Promise<Product[]> {
+    return this.products;
+  }
 }
