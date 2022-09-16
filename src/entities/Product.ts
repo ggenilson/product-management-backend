@@ -6,6 +6,7 @@ export class Product {
   public name: string;
   public value: number;
   public group: string;
+  public description: string;
 
   constructor(props: Omit<Product, "id">, id?: string) {
     Object.assign(this, props);
