@@ -1,0 +1,21 @@
+{
+  "name": "product-management-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ggenilson/product-management-backend.git",
+  "author": "ggenilson <genilsonaraujo20002002@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --transpile-only --respawn  --ignore-watch node_modules src/server.ts"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.12",
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.3"
+  }
+}
