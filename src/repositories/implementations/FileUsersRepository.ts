@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import fs from "fs";
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../IUsersRepository";
@@ -34,7 +35,9 @@ export class FileUsersRepository implements IUsersRepository {
   }
 
   async save(user: User): Promise<User> {
-    this.users.push(user);
+    const hashPassword = await bcrypt.hash(user.password, 10);
+
+    this.users.push({ ...user, password: hashPassword });
 
     this.updateUserFile();
 
