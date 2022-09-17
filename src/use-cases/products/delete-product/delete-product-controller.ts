@@ -10,7 +10,7 @@ export class DeleteProductController {
     try {
       await this.deleteProductUseCase.execute({ id });
 
-      return response.status(200);
+      return response.status(200).send("success");
     } catch (err) {
       return response
         .status(400)
