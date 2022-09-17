@@ -36,6 +36,14 @@ export class FileUsersRepository implements IUsersRepository {
     return user;
   }
 
+  async findById(id: string): Promise<User> {
+    this.users = (await this.getUserFile()) || [];
+
+    const user = this.users.find((user) => user.id === id);
+
+    return user;
+  }
+
   async save(user: User): Promise<User> {
     const hashPassword = await bcrypt.hash(user.password, 10);
 
