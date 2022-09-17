@@ -20,9 +20,13 @@ export class AuthenticationUserUseCase {
       throw new Error("incorrect email or password");
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET ?? "", {
-      expiresIn: AuthConfig.expiresIn,
-    });
+    const token = jwt.sign(
+      { id: user.id },
+      process.env.JWT_SECRET ?? AuthConfig.secret,
+      {
+        expiresIn: AuthConfig.expiresIn,
+      }
+    );
 
     const { password: _, ...userLogin } = user;
 
