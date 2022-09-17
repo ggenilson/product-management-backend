@@ -46,4 +46,15 @@ export class FileUsersRepository implements IUsersRepository {
 
     return users;
   }
+
+  async deleteUser(id: string): Promise<void> {
+    const users = await this.getUserFile();
+    const userIndex = users.findIndex((user) => user.id === id);
+
+    users.splice(userIndex, 1);
+
+    this.users = users;
+
+    this.updateUserFile();
+  }
 }
