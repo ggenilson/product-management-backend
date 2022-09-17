@@ -10,8 +10,6 @@ export class AuthenticationUserUseCase {
   async execute({ email, password }: IAuthenticationUserDTO) {
     const user = await this.userRepository.findByEmail(email);
 
-    console.log(user);
-
     if (!user) {
       throw new Error("incorrect email or password");
     }
