@@ -29,6 +29,8 @@ export class FileUsersRepository implements IUsersRepository {
   }
 
   async findByEmail(email: string): Promise<User> {
+    this.users = (await this.getUserFile()) || [];
+
     const user = this.users.find((user) => user.email === email);
 
     return user;

@@ -28,6 +28,8 @@ export class FileProductsRepository implements IProductsRepository {
   }
 
   async findByName(name: string): Promise<Product> {
+    this.products = (await this.getProductFile()) || [];
+
     const product = this.products.find((product) => product.name === name);
 
     return product;
