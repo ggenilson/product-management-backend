@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createProductController } from "../use-cases/create-product";
-import { getProductsController } from "../use-cases/get-products";
+import { createProductController } from "../use-cases/products/create-product";
+import { getProductsController } from "../use-cases/products/get-products";
 
 const productsRouter = Router();
 

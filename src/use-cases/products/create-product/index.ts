@@ -1,4 +1,4 @@
-import { FileProductsRepository } from "../../repositories/implementations/FileProductsRepository";
+import { FileProductsRepository } from "../../../repositories/implementations/FileProductsRepository";
 import { CreateProductController } from "./create-product-controller";
 import { CreateProductUseCase } from "./create-product-use-case";
 

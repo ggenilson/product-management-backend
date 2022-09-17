@@ -1,4 +1,4 @@
-import { IProductsRepository } from "../../repositories/IProductsRepository";
+import { IProductsRepository } from "../../../repositories/IProductsRepository";
 
 export class GetProductsUseCase {
   constructor(private productRepository: IProductsRepository) {}
