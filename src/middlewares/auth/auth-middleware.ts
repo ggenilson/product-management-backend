@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import AuthConfig from "../config/auth";
-import { IUsersRepository } from "../repositories/IUsersRepository";
+import AuthConfig from "../../config/auth";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 type JwtPayload = {
   id: number;
