@@ -53,6 +53,8 @@ export class FileProductsRepository implements IProductsRepository {
 
     products.splice(productIndex, 1);
 
+    this.products = products;
+
     this.updateProductFile();
   }
 }
