@@ -40,4 +40,10 @@ export class FileUsersRepository implements IUsersRepository {
 
     return user;
   }
+
+  async getUsers(): Promise<User[]> {
+    const users = await this.getUserFile();
+
+    return users;
+  }
 }
