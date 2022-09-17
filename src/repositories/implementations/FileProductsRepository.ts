@@ -5,16 +5,6 @@ import { IProductsRepository } from "../IProductsRepository";
 export class FileProductsRepository implements IProductsRepository {
   private products: Product[] = [];
 
-  constructor() {
-    fs.readFile("products.json", (err, res) => {
-      if (err) {
-        console.log("can not get products");
-      } else {
-        this.products = JSON.parse(res as any);
-      }
-    });
-  }
-
   updateProductFile(): void {
     fs.writeFile("products.json", JSON.stringify(this.products), (err) => {
       if (err) {
@@ -23,6 +13,18 @@ export class FileProductsRepository implements IProductsRepository {
         console.log("product updated");
       }
     });
+  }
+
+  async getProductFile(): Promise<Product[]> {
+    try {
+      const data = await fs.promises.readFile("products.json", "utf8");
+
+      const dataParsed = JSON.parse(data);
+
+      return dataParsed;
+    } catch (err) {
+      console.log(err.message);
+    }
   }
 
   async findByName(name: string): Promise<Product> {
@@ -40,6 +42,8 @@ export class FileProductsRepository implements IProductsRepository {
   }
 
   async getProducts(): Promise<Product[]> {
-    return this.products;
+    const products = await this.getProductFile();
+
+    return products;
   }
 }
