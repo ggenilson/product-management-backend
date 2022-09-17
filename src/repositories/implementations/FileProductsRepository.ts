@@ -46,4 +46,13 @@ export class FileProductsRepository implements IProductsRepository {
 
     return products;
   }
+
+  async deleteProduct(id: string): Promise<void> {
+    const products = await this.getProductFile();
+    const productIndex = products.findIndex((product) => product.id === id);
+
+    products.splice(productIndex, 1);
+
+    this.updateProductFile();
+  }
 }
