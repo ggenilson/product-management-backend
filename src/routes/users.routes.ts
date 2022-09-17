@@ -14,7 +14,7 @@ usersRouter.get("/", (request, response) =>
   getUsersController.handle(request, response)
 );
 
-usersRouter.get("/authenticate", (request, response) =>
+usersRouter.post("/authenticate", (request, response) =>
   authenticationUserController.handle(request, response)
 );
 
